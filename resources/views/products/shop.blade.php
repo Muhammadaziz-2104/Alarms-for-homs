@@ -125,7 +125,7 @@
                                             <div class="product-info-left">
 {{--                                                <a href="{{route('show',['id'=>$product->id])}}">--}}
                                                 <h4><a href="{{route('products',['product'=>$product->id])}}}">{{$product->name}}</a></h4>
-                                                <span class="product-price">{{$product->price}}</span>
+                                                <span class="product-price">{{$product->price}} {{$product->quantity}}</span>
 {{--                                                <span class="ratings">--}}
 {{--                                                    <i class="flaticon-star-1"></i>--}}
 {{--                                                    5--}}
