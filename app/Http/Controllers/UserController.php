@@ -23,16 +23,8 @@ class UserController extends Controller
 
     public function show(Product $product)
     {
-//        dd($product);
         return view('products.product', ['product' => $product]);
     }
-
-//    public function show(Product $product)
-//    {
-////        dd($product);
-//        return view('products.product', ['product' => $product]);
-//    }
-
 
     public function book_download(Book $id){
         $id->increment('download_count');
