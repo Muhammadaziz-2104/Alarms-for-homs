@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,6 +19,14 @@ use App\Http\Controllers\UserController;
 */
 
 Auth::routes();
+
+Route::middleware('auth')->group(function (){
+    Route::get('/my-account', [UserController::class, 'index'])->name('user.index');
+});
+
+Route::middleware(['auth', 'auth.admin'])->group(function (){
+    Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
+});
 
 Route::get('/', [PageController::class, 'index']);
 Route::get('services', [PageController::class, 'services'])->name('services');
