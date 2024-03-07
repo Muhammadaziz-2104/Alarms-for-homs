@@ -34,40 +34,41 @@
                                 <div class="swiper-wrapper">
                                     <div class="swiper-slide">
                                         <div class="product-large-img">
-                                            <img src="assets/img/shop/single-product-1.png" alt="Image">
+                                            @dd($product->image)
+{{--                                            <img src="assets/img/shop/{{$product->image}}" alt="Image">--}}
                                         </div>
                                     </div>
-                                    <div class="swiper-slide">
-                                        <div class="product-large-img">
-                                            <img src="assets/img/shop/single-product-2.png" alt="Image">
-                                        </div>
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <div class="product-large-img">
-                                            <img src="assets/img/shop/single-product-3.png" alt="Image">
-                                        </div>
-                                    </div>
+{{--                                    <div class="swiper-slide">--}}
+{{--                                        <div class="product-large-img">--}}
+{{--                                            <img src="assets/img/shop/single-product-2.png" alt="Image">--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                    <div class="swiper-slide">--}}
+{{--                                        <div class="product-large-img">--}}
+{{--                                            <img src="assets/img/shop/single-product-3.png" alt="Image">--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
                                 </div>
                             </div>
-                            <div class="swiper-container gallery-thumbs">
-                                <div class="swiper-wrapper">
-                                    <div class="swiper-slide">
-                                        <div class="product-thumb">
-                                            <img src="assets/img/shop/single-product-1.png" alt="Image">
-                                        </div>
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <div class="product-thumb">
-                                            <img src="assets/img/shop/single-product-2.png" alt="Image">
-                                        </div>
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <div class="product-thumb">
-                                            <img src="assets/img/shop/single-product-3.png" alt="Image">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+{{--                            <div class="swiper-container gallery-thumbs">--}}
+{{--                                <div class="swiper-wrapper">--}}
+{{--                                    <div class="swiper-slide">--}}
+{{--                                        <div class="product-thumb">--}}
+{{--                                            <img src="assets/img/shop/single-product-1.png" alt="Image">--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                    <div class="swiper-slide">--}}
+{{--                                        <div class="product-thumb">--}}
+{{--                                            <img src="assets/img/shop/single-product-2.png" alt="Image">--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                    <div class="swiper-slide">--}}
+{{--                                        <div class="product-thumb">--}}
+{{--                                            <img src="assets/img/shop/single-product-3.png" alt="Image">--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
                         </div>
                     </div>
 {{--                    @dd($product->id)--}}
@@ -75,11 +76,11 @@
                         <div class="single-product-details">
                             <div class="single-product-title">
                                 <h2>{{$product->name}}</h2>
-                                <h3><span>{{$product->price}}</span> <span class="discount">$200</span></h3>
+                                <h3><span>${{$product->regular_price}}</span> <span class="discount">${{$product->sale_price}}</span></h3>
                             </div>
                             <div class="single-product-desc">
                                 <p>
-                                    {{$product->text}}
+                                    {{$product->description}}
                                 </p>
                             </div>
                             <div class="product-more-option">
@@ -97,10 +98,11 @@
                                         </div>
                                     </div>
                                 </div>
-{{--                                <div class="products-more-option-item">--}}
-{{--                                    <h5>Availability :</h5>--}}
+                                <div class="products-more-option-item">
+                                    <h5>Availability :</h5>
+{{--                                    @if($product->)--}}
 {{--                                    <a href="shop-left-sidebar.html">In Stock</a>--}}
-{{--                                </div>--}}
+                                </div>
                             </div>
                             <div class="single-product-option">
                                 <a href="{{route('card',['product'=>$product->id])}}}" class="btn style4"><span>Add To Cart </span><i class="flaticon-shopping-cart-1"></i></a>

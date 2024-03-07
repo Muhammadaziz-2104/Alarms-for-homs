@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ShopController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PageController;
@@ -37,8 +38,9 @@ Route::get('projects', [PageController::class, 'projects'])->name('projects');
 Route::get('projectDetails', [PageController::class, 'projectDetails'])->name('projectDetails');
 Route::get('contact', [PageController::class, 'contact'])->name('contact');
 Route::get('/home', [HomeController::class, 'index'])->name('home');
-Route::get('shop', [UserController::class, 'index'])->name('shop');
-Route::get('/{product}', [UserController::class, 'show'])->name('products');
+Route::get('shop', [ShopController::class, 'index'])->name('shop');
+//Route::get('/{slug}',[ShopController::class,'show'])->name('products.product');
+Route::get('/{product}', [ShopController::class, 'show'])->name('products');
 //Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 //Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 //

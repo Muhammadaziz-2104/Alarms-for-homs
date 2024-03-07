@@ -118,7 +118,7 @@
                                 <div class="col-xxl-4 col-xl-6 col-lg-6 col-md-6">
                                     <div class="product-card">
                                         <div class="product-img">
-                                            <img src="{{$product->photo}} " alt="Image">
+                                            <img src="assets/img/shop/{{$product->image}}" alt="Image">
                                             <span class="bg-razz">Sold</span>
                                         </div>
                                         <div class="product-info">
@@ -142,7 +142,7 @@
 {{--                            <div class="col-xxl-4 col-xl-6 col-lg-6 col-md-6">--}}
 {{--                                <div class="products-card">--}}
 {{--                                    <div class="products-img">--}}
-{{--                                        <img src="assets/img/shop/products-2.png" alt="Image">--}}
+{{--                                        <img src="assets/img/shop/products-2.jpg" alt="Image">--}}
 {{--                                    </div>--}}
 {{--                                    <div class="products-info">--}}
 {{--                                        <div class="products-info-left">--}}
@@ -304,18 +304,20 @@
 {{--                                </div>--}}
 {{--                            </div>--}}
                         </div>
+
                         <div class="page-navigation">
                             <div class="row">
                                 <div class="col-lg-12 ">
-                                    <ul class="page-nav list-style">
-                                        <li><a href="shop-right-sidebar.html"><i class="flaticon-left-arrow-3"></i>
-                                            </a></li>
-                                        <li><a class="active" href="shop-right-sidebar.html">1</a></li>
-                                        <li><a href="shop-right-sidebar.html">2</a></li>
-                                        <li><a href="shop-right-sidebar.html">3</a></li>
-                                        <li><a href="shop-right-sidebar.html"> <i class="flaticon-right-arrow"></i>
-                                            </a></li>
-                                    </ul>
+                                    {{$products->links("pagination.default")}}
+{{--                                    <ul class="page-nav list-style">--}}
+{{--                                        <li><a href="shop-right-sidebar.html"><i class="flaticon-left-arrow-3"></i>--}}
+{{--                                            </a></li>--}}
+{{--                                        <li><a class="active" href="shop-right-sidebar.html">1</a></li>--}}
+{{--                                        <li><a href="shop-right-sidebar.html">2</a></li>--}}
+{{--                                        <li><a href="shop-right-sidebar.html">3</a></li>--}}
+{{--                                        <li><a href="shop-right-sidebar.html"> <i class="flaticon-right-arrow"></i>--}}
+{{--                                            </a></li>--}}
+{{--                                    </ul>--}}
                                 </div>
                             </div>
                         </div>

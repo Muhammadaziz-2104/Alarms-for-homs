@@ -53,7 +53,7 @@
                                             </div>
                                         </div>
                                         <div class="col-lg-6 col-md-6 col-sm-6 col-12 text-sm-end mb-20">
-                                            <a href="{{route('reset')}}" class="link style1">Forgot Password?</a>
+                                            <a href="#" class="link style1">Forgot Password?</a>
                                         </div>
                                         <div class="col-lg-12">
                                             <div class="form-group">
