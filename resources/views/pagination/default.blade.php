@@ -1,7 +1,7 @@
 @if($paginator->hasPages())
         <ul class="page-nav list-style">
             @if($paginator->onFirstPage())
-                <li disabled>
+                <li class="disabled" disabled>
                     <a href="javascript:void(0)" aria-label="Previous"
                        style="color:#6c757d;">
                         <span aria-hidden="true">
@@ -53,7 +53,7 @@
                     </a>
                 </li>
             @else
-                <li class="disabled">
+                <li class="disabled" disabled>
                     <a href="javascript:void(0)" aria-label="Next" style="color:#6c757d;">
                         <span aria-hidden="true">
                             <i class="flaticon-right-arrow"></i>
