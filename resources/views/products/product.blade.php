@@ -34,8 +34,8 @@
                                 <div class="swiper-wrapper">
                                     <div class="swiper-slide">
                                         <div class="product-large-img">
-                                            @dd($product->image)
-{{--                                            <img src="assets/img/shop/{{$product->image}}" alt="Image">--}}
+{{--                                            @dd($product)--}}
+                                            <img src="assets/img/shop/{{$product->image}}" alt="Image">
                                         </div>
                                     </div>
 {{--                                    <div class="swiper-slide">--}}
@@ -50,13 +50,13 @@
 {{--                                    </div>--}}
                                 </div>
                             </div>
-{{--                            <div class="swiper-container gallery-thumbs">--}}
-{{--                                <div class="swiper-wrapper">--}}
-{{--                                    <div class="swiper-slide">--}}
-{{--                                        <div class="product-thumb">--}}
-{{--                                            <img src="assets/img/shop/single-product-1.png" alt="Image">--}}
-{{--                                        </div>--}}
-{{--                                    </div>--}}
+                            <div class="swiper-container gallery-thumbs">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide">
+                                        <div class="product-thumb">
+                                            <img src="assets/img/shop/{{$product->images}}" alt="Image">
+                                        </div>
+                                    </div>
 {{--                                    <div class="swiper-slide">--}}
 {{--                                        <div class="product-thumb">--}}
 {{--                                            <img src="assets/img/shop/single-product-2.png" alt="Image">--}}
@@ -67,11 +67,11 @@
 {{--                                            <img src="assets/img/shop/single-product-3.png" alt="Image">--}}
 {{--                                        </div>--}}
 {{--                                    </div>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
+                                </div>
+                            </div>
                         </div>
                     </div>
-{{--                    @dd($product->id)--}}
+{{--                    @dd($product->stock_status)--}}
                     <div class="col-lg-6">
                         <div class="single-product-details">
                             <div class="single-product-title">
@@ -100,8 +100,14 @@
                                 </div>
                                 <div class="products-more-option-item">
                                     <h5>Availability :</h5>
-{{--                                    @if($product->)--}}
-{{--                                    <a href="shop-left-sidebar.html">In Stock</a>--}}
+                                        <a href="shop-left-sidebar.html">
+                                            @if($product->stock_status == 'instock' )
+                                                In Stock
+                                            @else
+                                                Out of Stock
+                                            @endif
+                                        </a>
+
                                 </div>
                             </div>
                             <div class="single-product-option">
@@ -260,67 +266,70 @@
                     </div>
                 </div>
                 <div class="row justify-content-md-center pb-75">
-                    <div class="col-xl-4 col-lg-6 col-md-6">
-                        <div class="product-card">
-                            <div class="product-img">
-                                <img src="assets/img/shop/product-1.png" alt="Image">
-                                <span class="bg-razz">Sold</span>
-                            </div>
-                            <div class="product-info">
-                                <div class="product-info-left">
-                                    <h4><a href="shop-details.html">Nest Cam Outdoor</a></h4>
-                                    <span class="product-price">$50.00</span>
-                                    <span class="ratings">
-<i class="flaticon-star-1"></i>
-5
-</span>
+                    @foreach($products as $item )
+                        <div class="col-xl-4 col-lg-6 col-md-6">
+                            <div class="product-card">
+                                <div class="product-img">
+                                    <img src="assets/img/shop/{{$item->image}}" alt="Image">
+{{--                                    <span class="bg-razz">Sold</span>--}}
                                 </div>
-                                <div class="product-info-right">
-                                    <a href="cart.html" class="add-to-cart"><i class="flaticon-shopping-cart-1"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-lg-6 col-md-6">
-                        <div class="product-card">
-                            <div class="product-img">
-                                <img src="assets/img/shop/product-2.png" alt="Image">
-                            </div>
-                            <div class="product-info">
-                                <div class="product-info-left">
-                                    <h4><a href="shop-details.html">360 Degree Camera</a></h4>
-                                    <span class="product-price">$45.00</span>
-                                    <span class="ratings">
-<i class="flaticon-star-1"></i>
-4.5
-</span>
-                                </div>
-                                <div class="product-info-right">
-                                    <a href="cart.html" class="add-to-cart"><i class="flaticon-shopping-cart-1"></i></a>
+                                <div class="product-info">
+                                    <div class="product-info-left">
+                                        <h4><a href="{{route('products',['product'=>$product->id])}}}">{{$item->name}}</a></h4>
+                                        <span class="product-price">{{$item->regular_price}}</span>
+{{--                                        <span class="ratings">--}}
+{{--<i class="flaticon-star-1"></i>--}}
+{{--5--}}
+{{--</span>--}}
+                                    </div>
+                                    <div class="product-info-right">
+                                        <a href="cart.html" class="add-to-cart"><i class="flaticon-shopping-cart-1"></i></a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-xl-4 col-lg-6 col-md-6">
-                        <div class="product-card">
-                            <div class="product-img">
-                                <img src="assets/img/shop/product-3.png" alt="Image">
-                            </div>
-                            <div class="product-info">
-                                <div class="product-info-left">
-                                    <h4><a href="shop-details.html">Face password Lock</a></h4>
-                                    <span class="product-price">$20.00</span>
-                                    <span class="ratings">
-<i class="flaticon-star-1"></i>
-5
-</span>
-                                </div>
-                                <div class="product-info-right">
-                                    <a href="cart.html" class="add-to-cart"><i class="flaticon-shopping-cart-1"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+
+                    @endforeach
+{{--                    <div class="col-xl-4 col-lg-6 col-md-6">--}}
+{{--                        <div class="product-card">--}}
+{{--                            <div class="product-img">--}}
+{{--                                <img src="assets/img/shop/product-2.png" alt="Image">--}}
+{{--                            </div>--}}
+{{--                            <div class="product-info">--}}
+{{--                                <div class="product-info-left">--}}
+{{--                                    <h4><a href="shop-details.html">360 Degree Camera</a></h4>--}}
+{{--                                    <span class="product-price">$45.00</span>--}}
+{{--                                    <span class="ratings">--}}
+{{--<i class="flaticon-star-1"></i>--}}
+{{--4.5--}}
+{{--</span>--}}
+{{--                                </div>--}}
+{{--                                <div class="product-info-right">--}}
+{{--                                    <a href="cart.html" class="add-to-cart"><i class="flaticon-shopping-cart-1"></i></a>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                    <div class="col-xl-4 col-lg-6 col-md-6">--}}
+{{--                        <div class="product-card">--}}
+{{--                            <div class="product-img">--}}
+{{--                                <img src="assets/img/shop/product-3.png" alt="Image">--}}
+{{--                            </div>--}}
+{{--                            <div class="product-info">--}}
+{{--                                <div class="product-info-left">--}}
+{{--                                    <h4><a href="shop-details.html">Face password Lock</a></h4>--}}
+{{--                                    <span class="product-price">$20.00</span>--}}
+{{--                                    <span class="ratings">--}}
+{{--<i class="flaticon-star-1"></i>--}}
+{{--5--}}
+{{--</span>--}}
+{{--                                </div>--}}
+{{--                                <div class="product-info-right">--}}
+{{--                                    <a href="cart.html" class="add-to-cart"><i class="flaticon-shopping-cart-1"></i></a>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
                 </div>
             </div>
         </section>
