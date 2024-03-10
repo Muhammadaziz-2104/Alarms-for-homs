@@ -1,12 +1,10 @@
 <?php
 
-use App\Http\Controllers\ShopController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,14 +19,6 @@ use App\Http\Controllers\AdminController;
 
 Auth::routes();
 
-Route::middleware('auth')->group(function (){
-    Route::get('/my-account', [UserController::class, 'index'])->name('user.index');
-});
-
-Route::middleware(['auth', 'auth.admin'])->group(function (){
-    Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
-});
-
 Route::get('/', [PageController::class, 'index']);
 Route::get('services', [PageController::class, 'services'])->name('services');
 Route::get('sdatails', [PageController::class, 'sdatails'])->name('sdatails');
@@ -38,9 +28,8 @@ Route::get('projects', [PageController::class, 'projects'])->name('projects');
 Route::get('projectDetails', [PageController::class, 'projectDetails'])->name('projectDetails');
 Route::get('contact', [PageController::class, 'contact'])->name('contact');
 Route::get('/home', [HomeController::class, 'index'])->name('home');
-Route::get('shop', [ShopController::class, 'index'])->name('shop');
-//Route::get('/{slug}',[ShopController::class,'show'])->name('products.product');
-Route::get('/{product}', [ShopController::class, 'show'])->name('products');
+Route::get('shop', [UserController::class, 'index'])->name('shop');
+Route::get('/{product}', [UserController::class, 'show'])->name('products');
 //Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 //Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 //

@@ -18,7 +18,7 @@ class UserController extends Controller
 //        $topViewedBooks = $products->orderBy('show_count', 'desc')->take(8)->get();
 //        $newestBooks = $products->orderBy('created_at', 'desc')->take(8)->get();
 //        return view('books.index',['show_books'=>$topViewedBooks, 'new_books'=>$newestBooks,'count'=>$count]);
-//        return view('products.shop',['products'=>$product]);
+        return view('products.shop',['products'=>$product]);
     }
 
     public function show(Product $product)
@@ -28,7 +28,7 @@ class UserController extends Controller
 
     public function book_download(Book $id){
         $id->increment('download_count');
-        return response()->download(storage_path('app/public/1.jpg'));
+        return response()->download(storage_path('app/public/1.png'));
     }
     public function all_books(){
         $all_books = Book::orderBy('created_at')->paginate(20);
